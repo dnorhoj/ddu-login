@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Hent spillet | {% endblock %}
+
+{% set active_page = "download" %}
+
+{% block content %}
+<div class="d-flex flex-column align-items-center">
+    <div class="card mb-3 shadow w-50">
+        <div class="card-header">Hent spillet</div>
+        <div class="card-body">
+            <p class="card-text">Hej {{username}}! Du kan hente spillet ved at klikke på knappen herunder.</p>
+            <div class="text-center">
+                <a href="" class="btn btn-success">Hent spillet</a>
+            </div>
+
+            <hr>
+            <p>Her er din licenskode:</p>
+            <div class="text-center">
+                <samp class="bg-secondary text-light p-2 rounded">{{license_}}</samp>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

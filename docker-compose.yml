@@ -1,0 +1,5 @@
+services:
+  login-system:
+    build: .
+    ports:
+      - "80:80"

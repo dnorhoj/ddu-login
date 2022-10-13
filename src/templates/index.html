@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}Hjem | {% endblock %}
+
+{% set active_page = "index" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-6">
+        <h1 class="mb-3">Velkommen til dduspilhent.dk</h1>
+        <p>
+            Her kan du hente DDU Spillet!<br><br>
+            DDU Spillet er et spil, som er udviklet af os, og som er tilgængeligt for alle!<br>
+            Du skal blot oprette en bruger, og så kan du hente spillet!<br>
+        </p>
+
+        <a href="#" class="btn btn-primary">Hent spillet</a>
+    </div>
+
+    <div class="col-6">
+        <!-- Image carousel -->
+        <div class="d-flex justify-content-center">
+            <div id="carousel" class="carousel slide shadow" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    {% for i in range(1,4+1) %}
+                    <div class="carousel-item {% if i==1 %}active{% endif %}" data-bs-interval="5000">
+                        <img src="/static/previews/preview_{{i}}.png" class="d-block w-100" alt="...">
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}Login | {% endblock %}
+
+{% set active_page = "login" %}
+
+{% block content %}
+<div class="d-flex flex-column align-items-center">
+    <div class="w-50 card mb-3 shadow">
+        <div class="card-header">Login</div>
+        <div class="card-body">
+            <form action="/login" method="post">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Brugernavn</label>
+                    <input type="text" class="form-control" name="username" value="{{username}}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Adgangskode</label>
+                    <input type="password" class="form-control" name="password" required>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Log ind</button>
+                    <a href="/register" class="btn btn-secondary">Har du ikke en bruger?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="w-50">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+</div>
+
+{% endblock %}
